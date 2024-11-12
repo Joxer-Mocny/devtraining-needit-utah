@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_58872_needit.GetUserFullName</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>GetUserFullName</name>
+        <script><![CDATA[var GetUserFullName = Class.create();
+GetUserFullName.prototype = {
+	initialize: function(){
+	},
+
+	getFullName: function(userSysId){
+		var gr = new GlideRecord('sys-user');
+		gr.get(userSysId);
+		return gr.getValue('first_name') + ' ' + gr.getValue('last_name');
+	},
+	type: 'GetUserFullName'
+}; 
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-11-12 11:55:53</sys_created_on>
+        <sys_id>38e5510a833d92102feab7a6feaad34c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GetUserFullName</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_38e5510a833d92102feab7a6feaad34c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-11-12 11:55:53</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>38e5510a833d92102feab7a6feaad34c</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-11-12 11:55:53</sys_created_on>
+        <sys_id>e0d6d186833d92102feab7a6feaad3c4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-11-12 11:55:53</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>false</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
