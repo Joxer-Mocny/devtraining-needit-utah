@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>false</active>
+        <api_name>x_58872_needit.ActiveIncidents</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>ActiveIncidents</name>
+        <script><![CDATA[var ActiveIncidentList = Class.create();
+ActiveIncidentList.prototype = {
+    initialize: function() {},
+
+    getActiveIncidents: function() {
+        var gr = new GlideRecord('incident');
+        gr.addActiveQuery();  // Only active incidents
+        gr.query();
+
+        var incidents = [];
+        while (gr.next()) {
+            incidents.push({
+                sys_id: gr.getValue('sys_id'),
+                number: gr.getValue('number'),
+                short_description: gr.getValue('short_description'),
+                priority: gr.getValue('priority'),
+                state: gr.getValue('state')
+            });
+        }
+        return incidents;
+    },
+
+    type: 'ActiveIncidentList'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-11-13 15:08:45</sys_created_on>
+        <sys_id>5b3c871283b916102feab7a6feaad3af</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ActiveIncidents</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_5b3c871283b916102feab7a6feaad3af</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-11-13 15:08:45</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>5b3c871283b916102feab7a6feaad3af</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-11-13 15:08:45</sys_created_on>
+        <sys_id>5f8c839a837916102feab7a6feaad386</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-11-13 15:08:45</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
