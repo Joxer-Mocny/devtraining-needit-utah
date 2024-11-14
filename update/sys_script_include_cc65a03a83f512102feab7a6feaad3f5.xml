@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>false</active>
+        <api_name>x_58872_needit.ServiceAvailabilityChecker</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>ServiceAvailabilityChecker</name>
+        <script><![CDATA[var ServiceAvailabilityChecker = Class.create();
+ServiceAvailabilityChecker.prototype = {
+    initialize: function() {},
+
+    isServiceAvailable: function(serviceName) {
+        var now = new GlideDateTime();
+        var currentHour = now.getLocalHour();
+        if (serviceName == 'EmailService' && currentHour >= 9 && currentHour <= 17) {
+            return true;
+        }
+        return false;
+    },
+
+    type: 'ServiceAvailabilityChecker'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-11-14 16:15:42</sys_created_on>
+        <sys_id>cc65a03a83f512102feab7a6feaad3f5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ServiceAvailabilityChecker</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_cc65a03a83f512102feab7a6feaad3f5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-11-14 16:15:42</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>cc65a03a83f512102feab7a6feaad3f5</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-11-14 16:15:41</sys_created_on>
+        <sys_id>3975243a83f512102feab7a6feaad379</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-11-14 16:15:41</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

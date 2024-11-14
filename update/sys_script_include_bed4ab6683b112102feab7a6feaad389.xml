@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_58872_needit.UpdateIncidentState</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>UpdateIncidentState</name>
+        <script><![CDATA[var IncidentStateUpdater = Class.create();
+IncidentStateUpdater.prototype = {
+    initialize: function() {},
+
+    updateIncidentState: function(incidentSysId, newState) {
+        var gr = new GlideRecord('incident');
+        if (gr.get(incidentSysId)) {
+            gr.setValue('state', newState);
+            var success = gr.update();
+            if (success) {
+                gs.addInfoMessage('Incident ' + incidentSysId + ' state has been updated to ' + newState);
+                return true;
+            } else {
+                gs.addErrorMessage('Failed to update incident ' + incidentSysId);
+                return false;
+            }
+        } else {
+            gs.addErrorMessage('Incident with Sys ID ' + incidentSysId + ' not found');
+            return false;
+        }
+    },
+
+    type: 'IncidentStateUpdater'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-11-14 11:34:40</sys_created_on>
+        <sys_id>bed4ab6683b112102feab7a6feaad389</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>UpdateIncidentState</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_bed4ab6683b112102feab7a6feaad389</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-11-14 11:34:40</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>bed4ab6683b112102feab7a6feaad389</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-11-14 11:34:40</sys_created_on>
+        <sys_id>5525632683b112102feab7a6feaad36f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-11-14 11:34:40</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
